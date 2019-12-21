@@ -10,6 +10,6 @@ public interface InterfSupermercado{
     public void vendaDeProdutos();
     public void pesquisaDeProdutos();
     public double pagamentoDasVendas();
-    public void relatoioDeVendas();
+    public void relatorioDeVendas();
     public void relatorioDeEstoques();
 }
