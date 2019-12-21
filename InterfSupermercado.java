@@ -1,7 +1,8 @@
 import java.util.List;
 
 public interface InterfSupermercado{
-
+    
+    public void Login();
     public void insereCliente();
     public void insereVendedor();
     public void insereGerente();
@@ -12,4 +13,5 @@ public interface InterfSupermercado{
     public double pagamentoDasVendas();
     public void relatorioDeVendas();
     public void relatorioDeEstoques();
+    
 }
