@@ -1,8 +1,13 @@
-
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Formularios;
 import Classes.Usuario;
 import Classes.DadosDeLogin;
 import javax.swing.JOptionPane;
+
 
 public class frmusuarios extends javax.swing.JInternalFrame {
 
@@ -14,9 +19,11 @@ public void setDadosDeLogin(DadosDeLogin classedados){
     this.classedados = classedados;
 }
 
+    
     public frmusuarios() {
         initComponents();
     }
+
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -334,7 +341,7 @@ public void setDadosDeLogin(DadosDeLogin classedados){
                return;
            }
        }
-       Usuario maisUsrs = new Usuario(txtcodusuario.getText(),(String)combousuario.getSelectedItem(),txtnomeusuario.getText(),txtmatusuario.getText(),senha1, senha2);
+       Usuario maisUsrs = new Usuario(txtcodusuario.getText(),(String)combousuario.getSelectedItem(),txtnomeusuario.getText(),txtmatusuario.getText(),senha1);
        String mensg = classedados.CadastraUsuarios(maisUsrs);
        JOptionPane.showMessageDialog(rootPane, mensg);
        

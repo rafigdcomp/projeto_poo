@@ -9,7 +9,7 @@ public class Usuario {
     private String senha1usuario;
     private String combousuario;
 
-    public Usuario(String codusuario, String nomeusuario, String matusuario, String senha1usuario,String senha2usuario,String combousuario) {
+    public Usuario(String codusuario, String nomeusuario, String matusuario, String senha1usuario, String combousuario) {
         this.codusuario = codusuario;
         this.nomeusuario = nomeusuario;
         this.matusuario = matusuario;

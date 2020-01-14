@@ -1,6 +1,9 @@
 
 package Classes;
 
+import java.io.FileNotFoundException;
+import java.util.Arrays;
+import javax.swing.JOptionPane;
 
 public class DadosDeLogin {
     private int mxusuarios = 150;
@@ -8,8 +11,8 @@ public class DadosDeLogin {
     
     private int contausr = 0;
     
-    public DadosDeLogin(){
-        Usuario novousuarios = new Usuario("111111","Rubem","22502","123","123","2");
+    public DadosDeLogin() throws FileNotFoundException{
+        Usuario novousuarios = new Usuario("111111","Rubem","22502","123","3");
         novousuario[contausr] = novousuarios;
         contausr++;
         
@@ -17,21 +20,37 @@ public class DadosDeLogin {
     public Usuario[] getUsuarios(){
         return novousuario;
     }
-    public boolean validaUsuarios(String usuario, String senha){
-        boolean a = false;
-        for(int x=0; x<contausr; x++){
-            if(novousuario[x].getCodusuario().equals(usuario) && novousuario[x].getSenha1usuario().equals(senha)){
-                return true;
+    public boolean validaUsuarios(String usuario, String senha) throws FileNotFoundException{
+
+        ConexaoBD conexao = new ConexaoBD();
+        String[][] usuarios;
+        usuarios = conexao.getUsuarios();
+        
+        for (int i = 0; i < 150; i++) {
+            //System.out.print(Arrays.toString(usuarios[i]));
+            if(!"[null, null]".equals(Arrays.toString(usuarios[i]))) {
+                if(usuarios[i][0].equals(usuario) && usuarios[i][1].equals(senha))
+                    return true;
             }
             
         }
-        return false;
+        
+//        boolean a = false;;;
+//        for(int x=0; x<contausr; x++){
+//            if(novousuario[x].getNomeusuario().equals(usuario) && novousuario[x].getSenha1usuario().equals(senha)){
+//                return true;
+//            }
+//            
+//        }
+//        return false;
+            return false;
         
         }
+    
        public int verUsuario(String usuario){
         
         for(int x=0; x<contausr; x++){
-            if(novousuario[x].getCodusuario().equals(usuario)){
+            if(novousuario[x].getNomeusuario().equals(usuario)){
                 return x;
             }
             
