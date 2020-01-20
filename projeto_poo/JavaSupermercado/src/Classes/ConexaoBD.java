@@ -27,11 +27,11 @@ public class ConexaoBD {
     public String[][] getUsuarios() {
         //Obter os dados a partir do arquivo
         
-        String nomeArquivo = "C:\\Users\\Vinicius\\Documents\\projeto_poo-20200111T013731Z-001\\projeto_poo\\JavaSupermercado\\src\\database\\usuarios.txt";
+        String nomeArquivo = "C:\\Users\\Vinicius\\Documents\\UFS\\projetos\\projeto_poo\\projeto_poo\\JavaSupermercado\\src\\database\\usuarios.txt";
         FileReader arquivoDados;
         BufferedReader leituraArquivo;
         String dados;
-        String usuarios[][] = new String[150][2];
+        String usuarios[][] = new String[150][5];
 
         
         try {

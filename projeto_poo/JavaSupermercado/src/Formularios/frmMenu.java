@@ -4,18 +4,20 @@ package Formularios;
 import Classes.DadosDeLogin;
 
 public class frmMenu extends javax.swing.JFrame {
-private DadosDeLogin classedados;
 
-public void setDadosDeLogin(DadosDeLogin classedados){
-    this.classedados = classedados;
-}
+    private static void EXIT_ON_CLOSE() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    private DadosDeLogin classedados;
 
-   
+    public void setDadosDeLogin(DadosDeLogin classedados){
+        this.classedados = classedados;
+    }
+
     public frmMenu() {
         initComponents();
     }
 
-  
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
@@ -33,6 +35,8 @@ public void setDadosDeLogin(DadosDeLogin classedados){
         mnarquivosaltsenha = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         mnarquivossair = new javax.swing.JMenuItem();
+        jMenu1 = new javax.swing.JMenu();
+        jMenuItem2 = new javax.swing.JMenuItem();
         mnrelatorios = new javax.swing.JMenu();
         mnrelatoriosvendas = new javax.swing.JMenuItem();
         mnrelatoriosestoques = new javax.swing.JMenuItem();
@@ -54,7 +58,7 @@ public void setDadosDeLogin(DadosDeLogin classedados){
         );
         DeskpainelLayout.setVerticalGroup(
             DeskpainelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 386, Short.MAX_VALUE)
+            .addGap(0, 388, Short.MAX_VALUE)
         );
 
         mnarquivos.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/arquivo2.png"))); // NOI18N
@@ -100,9 +104,32 @@ public void setDadosDeLogin(DadosDeLogin classedados){
 
         mnarquivossair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/sair1.jpg"))); // NOI18N
         mnarquivossair.setText("Sair");
+        mnarquivossair.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnarquivossairActionPerformed(evt);
+            }
+        });
         mnarquivos.add(mnarquivossair);
 
         jMenuBar1.add(mnarquivos);
+
+        jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/editar4.png"))); // NOI18N
+        jMenu1.setText("Tela de Vendas");
+        jMenu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu1ActionPerformed(evt);
+            }
+        });
+
+        jMenuItem2.setText("jMenuItem2");
+        jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem2ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem2);
+
+        jMenuBar1.add(jMenu1);
 
         mnrelatorios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/relatorio1.png"))); // NOI18N
         mnrelatorios.setText("Relatorios");
@@ -173,6 +200,22 @@ public void setDadosDeLogin(DadosDeLogin classedados){
         fproduto.show();
     }//GEN-LAST:event_mnarquivosprodutosActionPerformed
 
+    private void mnarquivossairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnarquivossairActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_mnarquivossairActionPerformed
+
+    private void jMenu1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu1ActionPerformed
+        //frmprodutos fproduto = new frmprodutos();
+    }//GEN-LAST:event_jMenu1ActionPerformed
+
+    private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
+        // TODO add your handling code here:
+        System.out.print("Ola");
+        frmTelaVendas ftelavendas = new frmTelaVendas();
+        Deskpainel.add(ftelavendas);
+        ftelavendas.show();
+    }//GEN-LAST:event_jMenuItem2ActionPerformed
+
    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -186,8 +229,10 @@ public void setDadosDeLogin(DadosDeLogin classedados){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private java.awt.Panel Deskpainel;
+    private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
+    private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;

@@ -288,6 +288,12 @@ public void setDadosDeLogin(DadosDeLogin classedados){
 
     private void cmdsalvarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdsalvarActionPerformed
        // Validando os campos
+       
+       
+       Usuario user = new Usuario("3", "Gerente", "Vinicius", "3", "456");
+       user.salvarNovoUsuario();
+       
+       
        if(txtcodusuario.getText().equals("")){
            JOptionPane.showMessageDialog(rootPane, "POR FAVOR, INSIRA UM CÓDIGO PARA FAZER CADASTRO");
            txtcodusuario.requestFocusInWindow();
