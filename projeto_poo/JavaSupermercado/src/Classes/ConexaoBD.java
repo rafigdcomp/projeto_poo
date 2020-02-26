@@ -38,8 +38,7 @@ public class ConexaoBD {
             arquivoDados = new FileReader(nomeArquivo);
             leituraArquivo = new BufferedReader(arquivoDados);
             dados = leituraArquivo.readLine();
-           
-
+          
             
             int contador = 0;
             while (dados != null) {

@@ -37,6 +37,7 @@ public class frmMenu extends javax.swing.JFrame {
         mnarquivossair = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
         jMenuItem2 = new javax.swing.JMenuItem();
+        jMenuItem3 = new javax.swing.JMenuItem();
         mnrelatorios = new javax.swing.JMenu();
         mnrelatoriosvendas = new javax.swing.JMenuItem();
         mnrelatoriosestoques = new javax.swing.JMenuItem();
@@ -121,13 +122,21 @@ public class frmMenu extends javax.swing.JFrame {
             }
         });
 
-        jMenuItem2.setText("jMenuItem2");
+        jMenuItem2.setText("Inicar Nova Venda");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
             }
         });
         jMenu1.add(jMenuItem2);
+
+        jMenuItem3.setText("Meu Estoque");
+        jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem3ActionPerformed(evt);
+            }
+        });
+        jMenu1.add(jMenuItem3);
 
         jMenuBar1.add(jMenu1);
 
@@ -153,10 +162,20 @@ public class frmMenu extends javax.swing.JFrame {
 
         mnajudaajuda.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/ajuda2.png"))); // NOI18N
         mnajudaajuda.setText("Ajuda");
+        mnajudaajuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnajudaajudaActionPerformed(evt);
+            }
+        });
         mnajuda.add(mnajudaajuda);
 
         mnajudasobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/sobre-nos1.png"))); // NOI18N
         mnajudasobre.setText("Sobre");
+        mnajudasobre.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnajudasobreActionPerformed(evt);
+            }
+        });
         mnajuda.add(mnajudasobre);
 
         jMenuBar1.add(mnajuda);
@@ -216,6 +235,27 @@ public class frmMenu extends javax.swing.JFrame {
         ftelavendas.show();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
+    private void mnajudaajudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnajudaajudaActionPerformed
+        // TODO add your handling code here:
+        frmAjuda frmAjuda = new frmAjuda();
+        Deskpainel.add(frmAjuda);
+        frmAjuda.show();
+    }//GEN-LAST:event_mnajudaajudaActionPerformed
+
+    private void mnajudasobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnajudasobreActionPerformed
+        // TODO add your handling code here:,
+        frmSobre frmSobre = new frmSobre();
+        Deskpainel.add(frmSobre);
+        frmSobre.show();
+    }//GEN-LAST:event_mnajudasobreActionPerformed
+
+    private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
+        // TODO add your handling code here:
+        frmEstoque frmEstoque = new frmEstoque();
+        Deskpainel.add(frmEstoque);
+        frmEstoque.show();
+    }//GEN-LAST:event_jMenuItem3ActionPerformed
+
    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
@@ -233,6 +273,7 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
+    private javax.swing.JMenuItem jMenuItem3;
     private javax.swing.JPopupMenu.Separator jSeparator1;
     private javax.swing.JPopupMenu.Separator jSeparator2;
     private javax.swing.JPopupMenu.Separator jSeparator3;

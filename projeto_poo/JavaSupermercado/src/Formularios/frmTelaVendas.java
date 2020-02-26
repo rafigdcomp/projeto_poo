@@ -5,17 +5,29 @@
  */
 package Formularios;
 
+import Classes.CarrinhoDeCompras;
+import Classes.Produto;
+import java.util.List;
+import javax.swing.DefaultListModel;
+import javax.swing.JOptionPane;
+
+
 /**
  *
  * @author Vinicius
  */
 public class frmTelaVendas extends javax.swing.JInternalFrame {
+    
+    private DefaultListModel lista = new DefaultListModel();
+    private CarrinhoDeCompras carrinho;
 
     /**
      * Creates new form frmTelaVendas
      */
     public frmTelaVendas() {
         initComponents();
+        this.carrinho = new CarrinhoDeCompras();
+        listaItens.setModel(this.lista);
     }
 
     /**
@@ -27,27 +39,82 @@ public class frmTelaVendas extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonGroup1 = new javax.swing.ButtonGroup();
+        buttonGroup2 = new javax.swing.ButtonGroup();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        listaItens = new javax.swing.JList<>();
         jToggleButton1 = new javax.swing.JToggleButton();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        quantidadeProduto = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        btbBuscarProduto = new javax.swing.JButton();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jLabel2 = new javax.swing.JLabel();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jButton3 = new javax.swing.JButton();
+        nomeProduto = new javax.swing.JLabel();
+        valorProduto = new javax.swing.JLabel();
+        quantidadeDisponivel = new javax.swing.JLabel();
+        nomeProduto1 = new javax.swing.JLabel();
+        nomeProduto2 = new javax.swing.JLabel();
+        nomeProduto3 = new javax.swing.JLabel();
+        inputBusca1 = new javax.swing.JTextField();
+        nomeProduto4 = new javax.swing.JLabel();
+        valorTotal = new javax.swing.JLabel();
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(listaItens);
 
         jToggleButton1.setText("Finalizar Compras");
 
         jLabel1.setText("Código do Produto");
 
-        jTextField1.setText("jTextField1");
+        quantidadeProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                quantidadeProdutoActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Adicionar Produto");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
+        btbBuscarProduto.setLabel("Buscar Produito");
+        btbBuscarProduto.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btbBuscarProdutoActionPerformed(evt);
+            }
+        });
+
+        jRadioButton1.setText("Dinheiro");
+
+        jLabel2.setText("Forma de Pagamento");
+
+        jRadioButton2.setText("Cartão");
+
+        jButton3.setText("Remover Produto");
+
+        nomeProduto.setText("...");
+
+        valorProduto.setText("...");
+
+        quantidadeDisponivel.setText("...");
+
+        nomeProduto1.setText("Produto");
+
+        nomeProduto2.setText("Valor");
+
+        nomeProduto3.setText("Quantidade Disponível");
+
+        inputBusca1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputBusca1ActionPerformed(evt);
+            }
+        });
+
+        nomeProduto4.setText("TOTAL");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -56,15 +123,39 @@ public class frmTelaVendas extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(nomeProduto4)
+                    .addComponent(valorTotal))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 259, Short.MAX_VALUE)
+                            .addComponent(jRadioButton1)
+                            .addComponent(jLabel2)
+                            .addComponent(jRadioButton2)
+                            .addComponent(jToggleButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel1)
-                            .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 261, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 507, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jToggleButton1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addContainerGap())
+                            .addComponent(nomeProduto)
+                            .addComponent(nomeProduto1))
+                        .addGap(40, 40, 40)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(valorProduto)
+                            .addComponent(nomeProduto2))
+                        .addGap(31, 31, 31)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(nomeProduto3)
+                            .addComponent(quantidadeDisponivel))
+                        .addGap(19, 19, 19))
+                    .addComponent(inputBusca1)
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(btbBuscarProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(quantidadeProduto))
+                .addGap(19, 19, 19))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -72,28 +163,123 @@ public class frmTelaVendas extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 513, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(nomeProduto4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(valorTotal))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel1)
                         .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nomeProduto1)
+                            .addComponent(nomeProduto2)
+                            .addComponent(nomeProduto3))
+                        .addGap(4, 4, 4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(nomeProduto)
+                            .addComponent(valorProduto)
+                            .addComponent(quantidadeDisponivel))
+                        .addGap(15, 15, 15)
+                        .addComponent(inputBusca1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btbBuscarProduto)
+                        .addGap(139, 139, 139)
+                        .addComponent(quantidadeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, 18, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton1)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 537, Short.MAX_VALUE))
-                .addGap(18, 18, 18)
-                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jButton3)
+                        .addGap(26, 26, 26)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jRadioButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jRadioButton2)
+                        .addGap(30, 30, 30)
+                        .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 88, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        //String idProduto = quantidadeProduto.getText();
+        int idProduto = 2;
+        try {
+            
+         Produto produtoresultado = this.carrinho.getProduto(idProduto);
+         int quantidade = Integer.valueOf(quantidadeProduto.getText());
+         if(produtoresultado.getQuantidadeDisponivel() > quantidade) {
+             atualizarLista();
+             this.lista.addElement(produtoresultado.getNome() + " - R$ " + produtoresultado.getValor() + " (" + quantidade + ")");
+             this.carrinho.addProduto(idProduto, quantidade);
+             //valorTotal.setText(String.valueOf(this.carrinho.atualizarValorTotal()));
+         }
+        } catch (Exception e) {
+          JOptionPane.showMessageDialog(null,"PRODUTO NÃO LOCALIZADO!");
+          JOptionPane.showMessageDialog(null,e.getMessage());
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void quantidadeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quantidadeProdutoActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_quantidadeProdutoActionPerformed
+
+    private void btbBuscarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbBuscarProdutoActionPerformed
+        // TODO add your handling code here:
+        //String idProduto = quantidadeProduto.getText();
+        int idProduto = 2;
+        try {
+         Produto produtoresultado = this.carrinho.getProduto(idProduto);
+         nomeProduto.setText(produtoresultado.getNome());
+         valorProduto.setText(String.valueOf(produtoresultado.getValor()));
+         quantidadeDisponivel.setText(String.valueOf(produtoresultado.getQuantidadeDisponivel()));
+        } catch (Exception e) {
+          JOptionPane.showMessageDialog(null,"PRODUTO NÃO LOCALIZADO!");
+          JOptionPane.showMessageDialog(null,e.getMessage());
+        }
+    }//GEN-LAST:event_btbBuscarProdutoActionPerformed
+
+    
+    public void atualizarLista() {
+        this.lista.clear();
+        List<Produto> produtos = this.carrinho.getProdutos();
+        JOptionPane.showMessageDialog(null,produtos.size());
+//        for(int i = 0; i < produtos.size(); i++) {;
+//            lista.addElement(produtos.get(i).getNome() + " - R$ " + produtos.get(i).getValor());
+//        }
+    }
+    
+    private void inputBusca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputBusca1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_inputBusca1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btbBuscarProduto;
+    private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.ButtonGroup buttonGroup2;
+    private javax.swing.JTextField inputBusca1;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JList<String> jList1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextField jTextField1;
     private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JList<String> listaItens;
+    private javax.swing.JLabel nomeProduto;
+    private javax.swing.JLabel nomeProduto1;
+    private javax.swing.JLabel nomeProduto2;
+    private javax.swing.JLabel nomeProduto3;
+    private javax.swing.JLabel nomeProduto4;
+    private javax.swing.JLabel quantidadeDisponivel;
+    private javax.swing.JTextField quantidadeProduto;
+    private javax.swing.JLabel valorProduto;
+    private javax.swing.JLabel valorTotal;
     // End of variables declaration//GEN-END:variables
 }
