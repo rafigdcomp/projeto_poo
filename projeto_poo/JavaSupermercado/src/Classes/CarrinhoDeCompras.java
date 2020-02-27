@@ -2,6 +2,9 @@ package Classes;
 
 import java.util.List;
 import java.awt.*;
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
@@ -16,23 +19,60 @@ import java.util.Comparator;
  *
  * @author Vinicius
  */
-public class CarrinhoDeCompras {
+public final class CarrinhoDeCompras {
     
     private List<Produto> produtos;
     private double valorTotal;
     private String formaPagamento;
     
-    public CarrinhoDeCompras() {}
+    private String[][] dados;
+    
+    public CarrinhoDeCompras() {
+        init();
+    }
     public CarrinhoDeCompras(List<Produto> produtos) {
         this.produtos = produtos;
+        init();
     }
     
-    public Produto getProduto(int i) {
-        //Verificar se o produto existe
-        return new Produto("maca", 2, 10);
+    public void init() {
+        String nomeArquivo = "C:\\Users\\Vinicius\\Documents\\UFS\\projetos\\projeto_poo\\projeto_poo\\JavaSupermercado\\src\\database\\produtos.txt";
+        FileReader arquivoDados;
+        BufferedReader leituraArquivo;
+        String dados2;
+        String produtos2[][] = new String[150][3];
+        try {
+            arquivoDados = new FileReader(nomeArquivo);
+            leituraArquivo = new BufferedReader(arquivoDados);
+            dados2 = leituraArquivo.readLine();
+          
+            
+            int contador = 0;
+            while (dados2 != null) {
+                String dadosSplit[] = dados2.split("-");
+                produtos2[contador] = dadosSplit;
+               
+                dados2 = leituraArquivo.readLine();
+                
+                contador++;
+            }
+        } catch (IOException e) {
+            System.err.printf("Erro ao abrir o arquivo: %s.\n", e.getMessage());
+        }
+        this.dados = produtos2;
     }
     
-    public boolean addProduto(int idProduto, int quantidade) {
+    public Produto getProduto(String nomeProduto) {
+        for(int i = 0; i < this.dados.length; i++) {
+            //System.out.println(this.dados[i][0] +"<----->" + nomeProduto);
+            if(this.dados[i][0] == null ? nomeProduto == null : this.dados[i][0].equals(nomeProduto))
+                return new Produto(dados[i][0], Double.valueOf(dados[i][1]), Integer.valueOf(dados[i][2]));
+        }
+        return new Produto("Nao localizado", 0, 0);
+    }
+        
+   
+    public boolean addProduto(String idProduto, int quantidade) {
         try {
             //this.produtos.add(getProduto(idProduto));
             this.produtos.add(new Produto("maca", 2, 10));
@@ -50,13 +90,14 @@ public class CarrinhoDeCompras {
         return this.produtos;
     }
     
-    private double getValorTotal() {
-        atualizarValorTotal();
+    public double getValorTotal() {
+        //System.out.print(this.dados[0].toString());
+        this.atualizarValorTotal();
         return this.valorTotal;
     }
     
     public double finalizarCompra() {
-        atualizarValorTotal();
+        this.atualizarValorTotal();
         double valorFinal = this.valorTotal;
         if(this.formaPagamento.equals("dinheiro")) {
             valorFinal = valorFinal * 0.10f;
@@ -65,12 +106,12 @@ public class CarrinhoDeCompras {
     }
     
     public double atualizarValorTotal() {
-        double valorTotal = 0;
+        double total = 0;
         for(int i = 0; i < this.produtos.size(); i++) {
-            valorTotal = valorTotal + this.produtos.get(i).getValor();
+            total = total + this.produtos.get(i).getValor();
         }
-        this.valorTotal = valorTotal;
-        return valorTotal;
+        this.valorTotal = total;
+        return total;
     }
     
   

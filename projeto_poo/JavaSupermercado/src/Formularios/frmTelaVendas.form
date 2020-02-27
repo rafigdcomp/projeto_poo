@@ -63,7 +63,7 @@
                       </Group>
                       <EmptySpace min="-2" pref="19" max="-2" attributes="0"/>
                   </Group>
-                  <Component id="inputBusca1" alignment="0" max="32767" attributes="0"/>
+                  <Component id="buscaNomeProduto" alignment="0" max="32767" attributes="0"/>
                   <Component id="jButton1" alignment="0" max="32767" attributes="0"/>
                   <Component id="btbBuscarProduto" alignment="0" max="32767" attributes="0"/>
                   <Component id="quantidadeProduto" max="32767" attributes="0"/>
@@ -99,7 +99,7 @@
                           <Component id="quantidadeDisponivel" alignment="3" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="15" max="-2" attributes="0"/>
-                      <Component id="inputBusca1" min="-2" max="-2" attributes="0"/>
+                      <Component id="buscaNomeProduto" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="btbBuscarProduto" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="139" max="-2" attributes="0"/>
@@ -142,6 +142,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Finalizar Compras"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jToggleButton1ActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
@@ -219,9 +222,9 @@
         <Property name="text" type="java.lang.String" value="Quantidade Dispon&#xed;vel"/>
       </Properties>
     </Component>
-    <Component class="javax.swing.JTextField" name="inputBusca1">
+    <Component class="javax.swing.JTextField" name="buscaNomeProduto">
       <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="inputBusca1ActionPerformed"/>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buscaNomeProdutoActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="nomeProduto4">

@@ -71,6 +71,7 @@ public class Usuario {
                 if(dados[i][0] != null)
                     gravarArq.printf(dados[i][0]+"-"+dados[i][1]+"-"+dados[i][2]+"-"+dados[i][3]+"-"+dados[i][4]+"\n");
             }
+            gravarArq.printf(this.codusuario+"-"+this.funcaousuario+"-"+this.nomeusuario+"-"+this.matusuario+"-"+this.senha1usuario+"-"+"\n");
             arq.close();
         } catch (IOException e) {
             System.err.printf("Erro ao abrir o arquivo: %s.\n", e.getMessage());

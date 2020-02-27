@@ -20,6 +20,9 @@ public class frmTelaVendas extends javax.swing.JInternalFrame {
     
     private DefaultListModel lista = new DefaultListModel();
     private CarrinhoDeCompras carrinho;
+    
+    //Para debug
+    private double total = 0;
 
     /**
      * Creates new form frmTelaVendas
@@ -58,13 +61,18 @@ public class frmTelaVendas extends javax.swing.JInternalFrame {
         nomeProduto1 = new javax.swing.JLabel();
         nomeProduto2 = new javax.swing.JLabel();
         nomeProduto3 = new javax.swing.JLabel();
-        inputBusca1 = new javax.swing.JTextField();
+        buscaNomeProduto = new javax.swing.JTextField();
         nomeProduto4 = new javax.swing.JLabel();
         valorTotal = new javax.swing.JLabel();
 
         jScrollPane1.setViewportView(listaItens);
 
         jToggleButton1.setText("Finalizar Compras");
+        jToggleButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jToggleButton1ActionPerformed(evt);
+            }
+        });
 
         jLabel1.setText("Código do Produto");
 
@@ -108,9 +116,9 @@ public class frmTelaVendas extends javax.swing.JInternalFrame {
 
         nomeProduto3.setText("Quantidade Disponível");
 
-        inputBusca1.addActionListener(new java.awt.event.ActionListener() {
+        buscaNomeProduto.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                inputBusca1ActionPerformed(evt);
+                buscaNomeProdutoActionPerformed(evt);
             }
         });
 
@@ -151,7 +159,7 @@ public class frmTelaVendas extends javax.swing.JInternalFrame {
                             .addComponent(nomeProduto3)
                             .addComponent(quantidadeDisponivel))
                         .addGap(19, 19, 19))
-                    .addComponent(inputBusca1)
+                    .addComponent(buscaNomeProduto)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btbBuscarProduto, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(quantidadeProduto))
@@ -181,7 +189,7 @@ public class frmTelaVendas extends javax.swing.JInternalFrame {
                             .addComponent(valorProduto)
                             .addComponent(quantidadeDisponivel))
                         .addGap(15, 15, 15)
-                        .addComponent(inputBusca1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buscaNomeProduto, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btbBuscarProduto)
                         .addGap(139, 139, 139)
@@ -206,16 +214,22 @@ public class frmTelaVendas extends javax.swing.JInternalFrame {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-        //String idProduto = quantidadeProduto.getText();
-        int idProduto = 2;
+        String idProduto = buscaNomeProduto.getText();
+//        int idProduto = 2;;
         try {
             
          Produto produtoresultado = this.carrinho.getProduto(idProduto);
          int quantidade = Integer.valueOf(quantidadeProduto.getText());
          if(produtoresultado.getQuantidadeDisponivel() > quantidade) {
-             atualizarLista();
+             //atualizarLista();
+             
              this.lista.addElement(produtoresultado.getNome() + " - R$ " + produtoresultado.getValor() + " (" + quantidade + ")");
              this.carrinho.addProduto(idProduto, quantidade);
+             
+             this.total = this.total + (produtoresultado.getValor() * quantidade);
+             valorTotal.setText(String.valueOf(this.total));
+             
+             //valorTotal.setText(String.valueOf(this.carrinho.getValorTotal()));
              //valorTotal.setText(String.valueOf(this.carrinho.atualizarValorTotal()));
          }
         } catch (Exception e) {
@@ -230,8 +244,8 @@ public class frmTelaVendas extends javax.swing.JInternalFrame {
 
     private void btbBuscarProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btbBuscarProdutoActionPerformed
         // TODO add your handling code here:
-        //String idProduto = quantidadeProduto.getText();
-        int idProduto = 2;
+        String idProduto = buscaNomeProduto.getText();;
+//        int idProduto = 2;
         try {
          Produto produtoresultado = this.carrinho.getProduto(idProduto);
          nomeProduto.setText(produtoresultado.getNome());
@@ -253,16 +267,21 @@ public class frmTelaVendas extends javax.swing.JInternalFrame {
 //        }
     }
     
-    private void inputBusca1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputBusca1ActionPerformed
+    private void buscaNomeProdutoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscaNomeProdutoActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_inputBusca1ActionPerformed
+    }//GEN-LAST:event_buscaNomeProdutoActionPerformed
+
+    private void jToggleButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jToggleButton1ActionPerformed
+        // TODO add your handling code here:
+        //Registrar nova venda
+    }//GEN-LAST:event_jToggleButton1ActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btbBuscarProduto;
+    private javax.swing.JTextField buscaNomeProduto;
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.ButtonGroup buttonGroup2;
-    private javax.swing.JTextField inputBusca1;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
