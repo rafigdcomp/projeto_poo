@@ -5,17 +5,36 @@
  */
 package Formularios;
 
+import Classes.Relatorio;
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author Vinicius
  */
 public class frmRelatorio extends javax.swing.JInternalFrame {
+    
+    
+    private DefaultListModel lista = new DefaultListModel();
+    private Relatorio relatorio;
 
     /**
      * Creates new form frmRelatorio
      */
     public frmRelatorio() {
         initComponents();
+        this.relatorio = new Relatorio();
+        listaVendas.setModel(lista);
+        atualizar();
+    }
+    
+    private void atualizar() {
+        lista.clear();
+        for(int i = 0; i < relatorio.getDados().length; i++) {
+            if(relatorio.getDados()[i][0] != null) {
+                lista.addElement("ID: " + relatorio.getDados()[i][0] + " | Usuario: " + relatorio.getDados()[i][1] + " | Valor dar venda: " + relatorio.getDados()[i][2]);
+            }
+        }
     }
 
     /**
@@ -28,14 +47,14 @@ public class frmRelatorio extends javax.swing.JInternalFrame {
     private void initComponents() {
 
         jScrollPane1 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        listaVendas = new javax.swing.JList<>();
 
-        jList1.setModel(new javax.swing.AbstractListModel<String>() {
+        listaVendas.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
             public int getSize() { return strings.length; }
             public String getElementAt(int i) { return strings[i]; }
         });
-        jScrollPane1.setViewportView(jList1);
+        jScrollPane1.setViewportView(listaVendas);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -59,7 +78,7 @@ public class frmRelatorio extends javax.swing.JInternalFrame {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JList<String> jList1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JList<String> listaVendas;
     // End of variables declaration//GEN-END:variables
 }

@@ -229,6 +229,7 @@
           <Image iconType="3" name="/imagens/primeiro.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Primeiro"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="cmdanterior">
@@ -237,6 +238,7 @@
           <Image iconType="3" name="/imagens/anterior.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Anterior"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="cmdseguinte">
@@ -245,6 +247,7 @@
           <Image iconType="3" name="/imagens/proximo.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Seguinte"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="cmdultimo">
@@ -253,6 +256,7 @@
           <Image iconType="3" name="/imagens/ultimo.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Ultimo"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="cmdadicionar">
@@ -261,6 +265,7 @@
           <Image iconType="3" name="/imagens/adicionar1.jpg"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Adicionar"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdadicionarActionPerformed"/>
@@ -272,6 +277,7 @@
           <Image iconType="3" name="/imagens/editar1.jpg"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Editar"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdeditarActionPerformed"/>
@@ -283,7 +289,6 @@
           <Image iconType="3" name="/imagens/salvar2.png"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Salvar"/>
-        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cmdsalvarActionPerformed"/>
@@ -295,6 +300,7 @@
           <Image iconType="3" name="/imagens/pesquisar2.jpg"/>
         </Property>
         <Property name="toolTipText" type="java.lang.String" value="Pesquisar"/>
+        <Property name="enabled" type="boolean" value="false"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JButton" name="cmddeletar">

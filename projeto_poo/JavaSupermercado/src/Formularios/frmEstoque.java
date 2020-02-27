@@ -54,11 +54,6 @@ public class frmEstoque extends javax.swing.JInternalFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
 
-        listaProdutos.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
-        });
         jScrollPane1.setViewportView(listaProdutos);
 
         jButton1.setText("Adicionar");
@@ -67,8 +62,6 @@ public class frmEstoque extends javax.swing.JInternalFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        inpProduto.setText("jTextField1");
 
         jButton2.setText("Remover");
         jButton2.setToolTipText("");

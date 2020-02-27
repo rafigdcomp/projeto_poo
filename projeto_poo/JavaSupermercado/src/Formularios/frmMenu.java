@@ -32,7 +32,6 @@ public class frmMenu extends javax.swing.JFrame {
         mnarquivosprodutos = new javax.swing.JMenuItem();
         jSeparator2 = new javax.swing.JPopupMenu.Separator();
         mnarquivosaltusuarios = new javax.swing.JMenuItem();
-        mnarquivosaltsenha = new javax.swing.JMenuItem();
         jSeparator3 = new javax.swing.JPopupMenu.Separator();
         mnarquivossair = new javax.swing.JMenuItem();
         jMenu1 = new javax.swing.JMenu();
@@ -44,7 +43,6 @@ public class frmMenu extends javax.swing.JFrame {
         mnrelatoriosacusuarios = new javax.swing.JMenuItem();
         mnajuda = new javax.swing.JMenu();
         mnajudaajuda = new javax.swing.JMenuItem();
-        mnajudasobre = new javax.swing.JMenuItem();
 
         jMenuItem1.setText("jMenuItem1");
 
@@ -77,6 +75,7 @@ public class frmMenu extends javax.swing.JFrame {
 
         mnarquivosclientes.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/clientes4.jpg"))); // NOI18N
         mnarquivosclientes.setText("Clientes");
+        mnarquivosclientes.setEnabled(false);
         mnarquivosclientes.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mnarquivosclientesActionPerformed(evt);
@@ -96,11 +95,8 @@ public class frmMenu extends javax.swing.JFrame {
 
         mnarquivosaltusuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/usuario3.png"))); // NOI18N
         mnarquivosaltusuarios.setText("Alterar Usuario");
+        mnarquivosaltusuarios.setEnabled(false);
         mnarquivos.add(mnarquivosaltusuarios);
-
-        mnarquivosaltsenha.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/senha3.png"))); // NOI18N
-        mnarquivosaltsenha.setText("Alterar Senha");
-        mnarquivos.add(mnarquivosaltsenha);
         mnarquivos.add(jSeparator3);
 
         mnarquivossair.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/sair1.jpg"))); // NOI18N
@@ -145,14 +141,21 @@ public class frmMenu extends javax.swing.JFrame {
 
         mnrelatoriosvendas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/relatorio3.png"))); // NOI18N
         mnrelatoriosvendas.setText("Rel. Vendas");
+        mnrelatoriosvendas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mnrelatoriosvendasActionPerformed(evt);
+            }
+        });
         mnrelatorios.add(mnrelatoriosvendas);
 
         mnrelatoriosestoques.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/relatorio2.png"))); // NOI18N
         mnrelatoriosestoques.setText("Rel. Estoques");
+        mnrelatoriosestoques.setEnabled(false);
         mnrelatorios.add(mnrelatoriosestoques);
 
         mnrelatoriosacusuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/relatorio4.jpg"))); // NOI18N
         mnrelatoriosacusuarios.setText("Rel. Ac. Funcionarios");
+        mnrelatoriosacusuarios.setEnabled(false);
         mnrelatorios.add(mnrelatoriosacusuarios);
 
         jMenuBar1.add(mnrelatorios);
@@ -168,15 +171,6 @@ public class frmMenu extends javax.swing.JFrame {
             }
         });
         mnajuda.add(mnajudaajuda);
-
-        mnajudasobre.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/sobre-nos1.png"))); // NOI18N
-        mnajudasobre.setText("Sobre");
-        mnajudasobre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mnajudasobreActionPerformed(evt);
-            }
-        });
-        mnajuda.add(mnajudasobre);
 
         jMenuBar1.add(mnajuda);
 
@@ -214,9 +208,12 @@ public class frmMenu extends javax.swing.JFrame {
 
     private void mnarquivosprodutosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnarquivosprodutosActionPerformed
         // este é o codigo do menu produtos
-        frmprodutos fproduto = new frmprodutos();
-        Deskpainel.add(fproduto);
-        fproduto.show();
+//        frmprodutos fproduto = new frmprodutos();
+//        Deskpainel.add(fproduto);
+//        fproduto.show();
+        frmEstoque frmEstoque = new frmEstoque();
+        Deskpainel.add(frmEstoque);
+        frmEstoque.show();
     }//GEN-LAST:event_mnarquivosprodutosActionPerformed
 
     private void mnarquivossairActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnarquivossairActionPerformed
@@ -235,26 +232,26 @@ public class frmMenu extends javax.swing.JFrame {
         ftelavendas.show();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void mnajudaajudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnajudaajudaActionPerformed
-        // TODO add your handling code here:
-        frmAjuda frmAjuda = new frmAjuda();
-        Deskpainel.add(frmAjuda);
-        frmAjuda.show();
-    }//GEN-LAST:event_mnajudaajudaActionPerformed
-
-    private void mnajudasobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnajudasobreActionPerformed
-        // TODO add your handling code here:,
-        frmSobre frmSobre = new frmSobre();
-        Deskpainel.add(frmSobre);
-        frmSobre.show();
-    }//GEN-LAST:event_mnajudasobreActionPerformed
-
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
         // TODO add your handling code here:
         frmEstoque frmEstoque = new frmEstoque();
         Deskpainel.add(frmEstoque);
         frmEstoque.show();
     }//GEN-LAST:event_jMenuItem3ActionPerformed
+
+    private void mnrelatoriosvendasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnrelatoriosvendasActionPerformed
+        // TODO add your handling code here:
+        frmRelatorio frmRelatorio = new frmRelatorio();
+        Deskpainel.add(frmRelatorio);
+        frmRelatorio.show();
+    }//GEN-LAST:event_mnrelatoriosvendasActionPerformed
+
+    private void mnajudaajudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mnajudaajudaActionPerformed
+        // TODO add your handling code here:
+        frmAjuda frmAjuda = new frmAjuda();
+        Deskpainel.add(frmAjuda);
+        frmAjuda.show();
+    }//GEN-LAST:event_mnajudaajudaActionPerformed
 
    
     public static void main(String args[]) {
@@ -279,9 +276,7 @@ public class frmMenu extends javax.swing.JFrame {
     private javax.swing.JPopupMenu.Separator jSeparator3;
     private javax.swing.JMenu mnajuda;
     private javax.swing.JMenuItem mnajudaajuda;
-    private javax.swing.JMenuItem mnajudasobre;
     private javax.swing.JMenu mnarquivos;
-    private javax.swing.JMenuItem mnarquivosaltsenha;
     private javax.swing.JMenuItem mnarquivosaltusuarios;
     private javax.swing.JMenuItem mnarquivosclientes;
     private javax.swing.JMenuItem mnarquivosprodutos;

@@ -6,6 +6,9 @@
 package Formularios;
 import Classes.Usuario;
 import Classes.DadosDeLogin;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 
@@ -63,20 +66,20 @@ public void setDadosDeLogin(DadosDeLogin classedados){
         setToolTipText("");
         setVisible(true);
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
-            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
-                formInternalFrameOpened(evt);
-            }
-            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
             }
-            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
             }
             public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
             }
-            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
             }
-            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
             }
         });
 
@@ -104,18 +107,23 @@ public void setDadosDeLogin(DadosDeLogin classedados){
 
         cmdprimeiro.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/primeiro.png"))); // NOI18N
         cmdprimeiro.setToolTipText("Primeiro");
+        cmdprimeiro.setEnabled(false);
 
         cmdanterior.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/anterior.png"))); // NOI18N
         cmdanterior.setToolTipText("Anterior");
+        cmdanterior.setEnabled(false);
 
         cmdseguinte.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/proximo.png"))); // NOI18N
         cmdseguinte.setToolTipText("Seguinte");
+        cmdseguinte.setEnabled(false);
 
         cmdultimo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/ultimo.png"))); // NOI18N
         cmdultimo.setToolTipText("Ultimo");
+        cmdultimo.setEnabled(false);
 
         cmdadicionar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/adicionar1.jpg"))); // NOI18N
         cmdadicionar.setToolTipText("Adicionar");
+        cmdadicionar.setEnabled(false);
         cmdadicionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdadicionarActionPerformed(evt);
@@ -124,6 +132,7 @@ public void setDadosDeLogin(DadosDeLogin classedados){
 
         cmdeditar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/editar1.jpg"))); // NOI18N
         cmdeditar.setToolTipText("Editar");
+        cmdeditar.setEnabled(false);
         cmdeditar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdeditarActionPerformed(evt);
@@ -132,7 +141,6 @@ public void setDadosDeLogin(DadosDeLogin classedados){
 
         cmdsalvar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/salvar2.png"))); // NOI18N
         cmdsalvar.setToolTipText("Salvar");
-        cmdsalvar.setEnabled(false);
         cmdsalvar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cmdsalvarActionPerformed(evt);
@@ -141,6 +149,7 @@ public void setDadosDeLogin(DadosDeLogin classedados){
 
         cmdpesquisar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/pesquisar2.jpg"))); // NOI18N
         cmdpesquisar.setToolTipText("Pesquisar");
+        cmdpesquisar.setEnabled(false);
 
         cmddeletar.setIcon(new javax.swing.ImageIcon(getClass().getResource("/imagens/deletar1.jpg"))); // NOI18N
         cmddeletar.setToolTipText("Deletar");
@@ -290,9 +299,13 @@ public void setDadosDeLogin(DadosDeLogin classedados){
        // Validando os campos
        
        
-       Usuario user = new Usuario("3", "Gerente", "Vinicius", "3", "456");
-       user.salvarNovoUsuario();
-       
+        Usuario user = new Usuario("3", "Gerente", "Vinicius", "3", "456");
+        try {
+            //user.salvarNovoUsuario();
+            user.salvarNovoUsuario();
+        } catch (IOException ex) {
+            Logger.getLogger(frmusuarios.class.getName()).log(Level.SEVERE, null, ex);
+        }
        
        if(txtcodusuario.getText().equals("")){
            JOptionPane.showMessageDialog(rootPane, "POR FAVOR, INSIRA UM CÓDIGO PARA FAZER CADASTRO");
