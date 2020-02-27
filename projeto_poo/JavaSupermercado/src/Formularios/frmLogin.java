@@ -2,6 +2,9 @@
 package Formularios;
 
 import Classes.DadosDeLogin;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
@@ -103,6 +106,7 @@ public void setDadosDeLogin(DadosDeLogin classedados){
     }//GEN-LAST:event_cmdsairActionPerformed
 
     private void cmdloginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cmdloginActionPerformed
+    try {
         // Ação do botão Login
         
         if(classedados.validaUsuarios(txtusuario.getText(), new String(txtsenha.getPassword()))){
@@ -113,6 +117,9 @@ public void setDadosDeLogin(DadosDeLogin classedados){
             txtusuario.requestFocusInWindow();
             return;
         }
+    } catch (FileNotFoundException ex) {
+        Logger.getLogger(frmLogin.class.getName()).log(Level.SEVERE, null, ex);
+    }
         frmMenu frmmenu = new frmMenu();
         this.setVisible(false);
         frmmenu.setDadosDeLogin(classedados);
